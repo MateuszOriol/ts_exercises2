@@ -27,8 +27,13 @@ export const skontrolujWydatki = (wydatek: Wydatki) => {
 
 //# ---
 
-export const isWydatek = (wydatek: any) => { return false; }
+export const isWydatek = (wydatek: Wydatki): wydatek is Wydatek => {
+    return (wydatek as Wydatek)?.kwota !== undefined && (wydatek as Wydatek)?.opis !== undefined;
+}
 
-export const isWydatekSzefa = (wydatek: any) => { return false; }
-
-export const isWycieczkaSzefaNaKosztFirmy = (wydatek: any) => { return false; }
+export const isWydatekSzefa = (wydatek: Wydatki): wydatek is WydatekSzefa => {
+    return isWydatek(wydatek) && (wydatek as WydatekSzefa).isSzef === true;
+}
+export const isWycieczkaSzefaNaKosztFirmy = (wydatek: Wydatki): wydatek is WycieczkaSzefaNaKosztFirmy => {
+    return isWydatekSzefa(wydatek) && (wydatek as WycieczkaSzefaNaKosztFirmy).cel !== undefined;
+}

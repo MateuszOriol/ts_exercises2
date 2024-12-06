@@ -5,7 +5,11 @@
  * a wartością boolean określający czy kontrola została przeprowadzona.
  */
 
-export type KontroleZaRok = any;
+// export type KontroleZaRok = {
+//   [rok: string]: boolean;
+// };
+export type KontroleZaRok = Record<number, boolean>;
+
 
 export const kontroleZaRok: KontroleZaRok = {
     2019: true,

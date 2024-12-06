@@ -12,5 +12,9 @@ export const wyniki: unknown = {
 }
 
 //# ---
+export type wynikiAleZTypem = {
+    [key: number]: string;
+}
 
-export const wynikiAleZTypem = wyniki;
+export const wynikiAleZTypem: wynikiAleZTypem = wyniki as wynikiAleZTypem;
+//?
